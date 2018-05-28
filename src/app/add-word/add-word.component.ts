@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddWordComponent implements OnInit {
 
+  //address = new Address();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    alert("Thanks for submitting! Data: " + JSON.stringify(this.address));
   }
 
 }

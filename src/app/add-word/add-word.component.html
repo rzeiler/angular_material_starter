@@ -1,3 +1,16 @@
-<p>
-  add-word works!
-</p>
+<form class="formwidth" (ngSubmit)="onSubmit()" #myForm="ngForm">
+
+  <mat-form-field>
+    <input matInput placeholder="Input"/>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Input"/>
+  </mat-form-field>
+
+
+
+  <p>
+    <button type="submit" md-raised-button>Submit</button>
+  </p>
+</form>

@@ -1,13 +1,17 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
-    <mat-toolbar color="primary">Menu</mat-toolbar>
-    <div>
-      <mat-nav-list>
-        <a mat-list-item href="#">Link 1</a>
-        <a mat-list-item href="#">Link 2</a>
-        <a mat-list-item href="#">Link 3</a>
-      </mat-nav-list>
-    </div>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+      <mat-divider></mat-divider>
+      <div *ngIf="afAuth.user | async as user; else showLogin">
+        <a mat-list-item (click)="logout()" href="#logout">{{ user.displayName }} Logout</a>
+      </div>
+      <ng-template #showLogin>
+        <a mat-list-item (click)="login()">Login with Google</a>
+      </ng-template>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">

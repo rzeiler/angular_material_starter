@@ -16,12 +16,14 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import 'hammerjs';
 
 import { MainNavComponent } from './main-nav/main-nav.component';
+import { AddWordComponent } from './add-word/add-word.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavComponent
+    MainNavComponent,
+    AddWordComponent
   ],
   imports: [
     BrowserModule,

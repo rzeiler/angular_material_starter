@@ -12,8 +12,11 @@ export class AppComponent {
   title = 'app';
   items: Observable<any[]>;
   constructor(db: AngularFireDatabase) {
-
-
     this.items = db.list('woerter').valueChanges();
   }
+
+  
+
+
+
 }

@@ -7,15 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddWordComponent implements OnInit {
 
-  //address = new Address();
+  address = null;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  addTodo(value: string): void {
+      // ...
+    }
+
   onSubmit() {
     alert("Thanks for submitting! Data: " + JSON.stringify(this.address));
+
+    //const newId = items.push('new item').key();
   }
 
 }

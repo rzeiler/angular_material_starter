@@ -11,38 +11,46 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 /* firebase */
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-
-
-import { MainNavComponent } from './main-nav/main-nav.component';
+import { MainNavComponent, InfoDialog } from './main-nav/main-nav.component';
 import { AddWordComponent } from './add-word/add-word.component';
 
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainNavComponent,
-    AddWordComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
+  exports: [
+    MatDialogModule,
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
     MatIconModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
+  ]
+})
+export class MaterialModules { }
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    MainNavComponent,
+    InfoDialog,
+    AddWordComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    FormsModule
+    FormsModule,
+    MaterialModules
   ],
+  entryComponents: [InfoDialog],
   providers: [],
   bootstrap: [AppComponent]
 })

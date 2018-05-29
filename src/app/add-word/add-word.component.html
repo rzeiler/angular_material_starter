@@ -1,15 +1,12 @@
-<form class="formwidth" (ngSubmit)="onSubmit()" #myForm="ngForm">
-
+<form class="formwidth" (ngSubmit)="onSet(word)" #myForm="ngForm">
   <mat-form-field>
-    <input matInput placeholder="Input"/>
+    <input matInput [(ngModel)]="word.sprache2" name="sprache2"
+    placeholder="Deutsch" />
   </mat-form-field>
-
   <mat-form-field>
-    <input matInput placeholder="Input"/>
+    <input matInput [(ngModel)]="word.sprache1" name="sprache1"
+    placeholder="Spanisch" />
   </mat-form-field>
-
-
-
   <p>
     <button type="submit" md-raised-button>Submit</button>
   </p>

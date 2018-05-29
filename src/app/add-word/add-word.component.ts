@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Word } from '../words';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-add-word',
@@ -7,21 +9,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddWordComponent implements OnInit {
 
-  address = null;
+customer: FirebaseObjectObservable<Word> = null;
+customers: FirebaseListObservable<Word[]> = null;
 
-  constructor() { }
+  word = new Word();
 
-  ngOnInit() {
+  constructor(public db: AngularFireDatabase) { }
+
+  ngOnInit() { }
+
+  onSet(word) {
+
+    word.timestamp = Math.round(new Date().getTime() / 1000);
+
+    const items = this.db.object('/woerter');
+    const newId = items.set(word).key();
+
+    alert(newId);
+    alert(word.sprache1);
+
+    /*
+    .then((item) => this._successCadastro(item))
+    .catch((err) => this._errorCadastro(err));
+    }
+    */
+
   }
 
-  addTodo(value: string): void {
-      // ...
-    }
-
-  onSubmit() {
-    alert("Thanks for submitting! Data: " + JSON.stringify(this.address));
-
-    //const newId = items.push('new item').key();
+  private handleError(error) {
+    console.log(error);
   }
 
 }

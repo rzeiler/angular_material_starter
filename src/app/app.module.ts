@@ -19,7 +19,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { MainNavComponent, InfoDialog } from './main-nav/main-nav.component';
-import { AddWordComponent } from './add-word/add-word.component';
+
+
+import { WordDetailComponent } from './word-detail/word-detail.component';
 
 @NgModule({
   exports: [
@@ -40,7 +42,7 @@ export class MaterialModules { }
     AppComponent,
     MainNavComponent,
     InfoDialog,
-    AddWordComponent
+    WordDetailComponent
   ],
   imports: [
     BrowserModule,
